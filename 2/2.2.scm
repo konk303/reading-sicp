@@ -20,8 +20,9 @@
         (start (start-segment segment))
         (end (end-segment segment))
         )
-    (cons
-     (/ (+ (x-point start) (x-point end)) 2)
-     (/ (+ (y-point start) (y-point end)) 2)
+    (print-point (make-point
+                  (/ (+ (x-point start) (x-point end)) 2)
+                  (/ (+ (y-point start) (y-point end)) 2)
      ))
+    )
   )
