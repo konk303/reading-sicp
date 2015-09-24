@@ -7,6 +7,7 @@
 (define (cdr z)
   (z (lambda (p q) q)))
 
-(define (z) (cons 1 2))
-(display (car (z)))
-(display (cdr (z)))
+(define (test) (cons 3 5))
+(display (car (test)))
+(display ",")
+(display (cdr (test)))
