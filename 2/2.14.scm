@@ -62,7 +62,14 @@
 (display (make-center-percent 10 0.1))  ;foo
 (display (make-center-percent 20 0.05)) ;bar
 
-(display (par1 foo bar)) ;bar
+(display "par1:")
+(display (par1 foo bar))
+(newline)
+(display "par2:")
+(display (par2 foo bar))
+
+
+
 ;; (display "center:")
 ;; (display (center foo))
 ;; (newline)
