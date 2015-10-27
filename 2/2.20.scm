@@ -1,0 +1,11 @@
+(define (same-parity . list)
+  (let ((is_odd (odd? (car list))))
+    (define (iter i)
+      (cond ((null? i) null)
+            ((eq? (odd? (car i)) is_odd) (cons (car i) (iter (cdr i))))
+            (else (iter (cdr i)))))
+    (iter list)
+    ))
+
+(display (same-parity 1 2 3 4 5 6 7))
+(same-parity 2 3 4 5 6 7)
