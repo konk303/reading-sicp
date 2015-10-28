@@ -1,5 +1,7 @@
 ## 文法
 
+https://www.shido.info/lisp/scheme5.html
+
 ### let
 
 第1引数が名前と内容のペアのリスト
@@ -32,3 +34,7 @@ lambda
 ```scheme
 (lambda (x) (* x x))
 ```
+
+### begin
+
+begin は与えられた式を前から順番に評価していき、最後の式の値を返します。
