@@ -24,3 +24,11 @@ elseあり
         ((= i 2) "two!")
         (else "not one or two!")))
 ```
+
+### lambda
+
+lambda
+
+```scheme
+(lambda (x) (* x x))
+```
