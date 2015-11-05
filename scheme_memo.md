@@ -2,6 +2,15 @@
 
 https://www.shido.info/lisp/scheme5.html
 
+### if
+
+```scheme
+(define (method i)
+  (if (= i 1)
+  i
+  (* i 2)))
+```
+
 ### let
 
 第1引数が名前と内容のペアのリスト
