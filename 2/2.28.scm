@@ -15,8 +15,20 @@
             (cons a result))))
   (iter x null))
 
+(define (fringe3 x)
+  (if (null? x)
+      null
+      (cond ((null? (car x))
+             (fringe3 (cdr x)))
+            ((pair? (car x))
+             (fringe3 (cons (car (car x)) (cons (cdr (car x)) (cdr x)))))
+            (else (cons (car x) (fringe3 (cdr x)))))))
+
+
+
 
 (define x (list (list 1 2) (list 3 4)))
+
 (display (fringe x))
 ;; (1 2 3 4)
 (newline)
@@ -30,4 +42,11 @@
 (newline)
 
 (display (fringe2 (list x x)))
+;; (1 2 3 4 1 2 3 4)
+
+(newline)
+(display (fringe3 x))
+;; (1 2 3 4)
+(newline)
+(display (fringe3 (list x x)))
 ;; (1 2 3 4 1 2 3 4)

@@ -47,3 +47,9 @@ lambda
 ### begin
 
 begin は与えられた式を前から順番に評価していき、最後の式の値を返します。
+
+### map
+
+```scheme
+(map (lambda (x) (* x x) (list 1 2 3)))
+```
