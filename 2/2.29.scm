@@ -44,6 +44,24 @@
          (= (torque (left-branch mobile)) (torque (right-branch mobile))))))
 
 
+(define (balanced2? mobile)
+  (define (branch-weight branch)
+    (if (pair? (branch-structure branch))
+        (total-weight (branch-structure branch))
+        (branch-structure branch)))
+  (if (pair? mobile)
+      (let ((l (left-branch mobile))
+            (r (right-branch mobile)))
+        (and (=
+              (* (branch-length l) (branch-weight l))
+              (* (branch-length r) (branch-weight r)))
+             (balanced2? (branch-structure l))
+             (balanced2? (branch-structure r))))
+      #t))
+
+
+
+
 (define a (make-mobile (make-branch 40 40)
                        (make-branch 20 (make-mobile (make-branch 30 50)
                                                     (make-branch 50 (make-mobile
@@ -64,6 +82,7 @@
 (newline)
 (display (balanced? a))
 (newline)
+(display (balanced2? a))
 
 ;; 4
 (define (make-mobile left right)
