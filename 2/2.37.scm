@@ -12,21 +12,35 @@
       (cons (accumulate op init (map car seqs))
             (accumulate-n op init (map cdr seqs)))))
 
-(define v '(1 2 3 4))
+(define v1 '(1 2 3 4))
 (define v2 '(4 5 6 6))
 (define v3 '(6 7 8 9))
-(define matrix (list v v2 v3))
+(define matrix (list v1 v2 v3))
 
 
 (define (dot-product v w)
   (accumulate + 0 (map * v w)))
 
-(display (dot-product v v2))
+(display (dot-product v1 v2))
 (newline)
 
 (define (matrix-*-vector m v)
-  (map (lambda(x) (accumulate + 0 (accumulate-n + 0 (list v x))))
+  (map (lambda(x) (dot-product x v))
        m))
 
-(display (matrix-*-vector matrix v))
+(display (matrix-*-vector matrix v1))
 (newline)
+
+(define (transpose mat)
+  (accumulate-n cons nil mat))
+
+(display (transpose matrix))
+(newline)
+
+(define (matrix-*-matrix m n)
+  (let ((cols (transpose n)))
+    (map
+     (lambda (x) (matrix-*-vector n x))
+     m)))
+
+(display (matrix-*-matrix matrix matrix))
