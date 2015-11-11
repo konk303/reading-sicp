@@ -22,3 +22,11 @@
   (accumulate + 0 (map * v w)))
 
 (display (dot-product v v2))
+(newline)
+
+(define (matrix-*-vector m v)
+  (map (lambda(x) (accumulate + 0 (accumulate-n + 0 (list v x))))
+       m))
+
+(display (matrix-*-vector matrix v))
+(newline)
