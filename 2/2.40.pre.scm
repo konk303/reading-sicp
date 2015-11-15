@@ -5,9 +5,9 @@
       (cons i (enumerate-interval (+ i 1) n))))
 (define (prime? n)
   (define (iter i)
-    (if (<= n i)
-        #t
-        (and (positive? (modulo n i)) (iter (+ i 1)))))
+    (cond ((<= n i) #t)
+          ((zero? (modulo n i)) #f)
+          (else (iter (+ i 1)))))
   (if (= n 1)
       #f
       (iter 2)))
