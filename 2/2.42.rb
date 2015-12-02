@@ -5,7 +5,7 @@ class Array
 end
 
 class Queens
-  Position = Struct.new :col, :row
+  # Position = Struct.new :col, :row
 
   attr_accessor :board_size
 
@@ -37,17 +37,22 @@ class Queens
             else
               [roq]
             end
-    rests << Position.new(col, row)
+    # rests << Position.new(col, row)
+    rests << row
   end
 
-  def safe?(k, positions)
+  def safe?(current_c, positions)
     rests = positions.dup
-    current = rests.pop
-    rests.all? do |rest|
-      diff = current.col - rest.col
-      rest.row != current.row &&
-        rest.row != (current.row - diff) &&
-        rest.row != (current.row + diff)
+    current_r = rests.pop
+    rests.to_enum.with_index.all? do |rest, c|
+      # diff = current.col - rest.col
+      # rest.row != current.row &&
+      #   rest.row != (current.row - diff) &&
+      #   rest.row != (current.row + diff)
+      c_diff = current_c - c.succ
+      rest != current_r &&
+        rest != (current_r - c_diff) &&
+        rest != (current_r + c_diff)
     end
   end
 end
