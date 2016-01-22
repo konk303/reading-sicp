@@ -14,6 +14,7 @@
             painter2)))
       (lambda (frame) (paint-below frame) (paint-up frame)))))
 
+
 (define (below2 painter1 painter2)
   (let ((besided
          (beside (rotate270 painter1)
